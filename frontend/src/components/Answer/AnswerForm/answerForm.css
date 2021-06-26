@@ -1,0 +1,9 @@
+.answer-text-box {
+    width: 400px;
+    height: 200px;
+    margin:0 !important;
+}
+
+.hide {
+    visibility: hidden;
+}

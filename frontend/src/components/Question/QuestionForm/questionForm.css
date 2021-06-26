@@ -1,0 +1,16 @@
+a.tag-remove-hidden {
+    visibility: hidden;
+
+}
+
+
+.tag-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 4;
+    gap:10px;
+}
+
+

@@ -1,0 +1,3 @@
+fuseki:
+  endpoint: "http://localhost:3030/"
+  dataset: "new"

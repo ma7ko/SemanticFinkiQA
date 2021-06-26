@@ -1,0 +1,54 @@
+.hide {
+    display: none;
+    margin:0;
+    padding:0;
+}
+.change-color {
+    color: #dddd22;
+}
+
+.fl-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fl-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fl-ch {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-grow: 4;
+}
+
+.main-fl {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-grow: 4;
+}
+
+.box-fix {
+    height: 680px;
+}
+
+.ic {
+    font-size: 20px !important;
+}
+
+.overr, .overr2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    align-self: center;
+    flex-grow: 4;
+}
+
+
+
+
+

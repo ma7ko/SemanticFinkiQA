@@ -1,0 +1,74 @@
+.questionTerm {
+    width: 100%;
+    margin:25px;
+
+}
+
+.small-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-grow: 4;
+}
+
+.innermost {
+    display: flex;
+}
+
+
+.reviews-header {
+    margin:0;
+    padding:0;
+}
+
+.tags {overflow: hidden !important;}
+
+.hide-tag-ids {
+    visibility: hidden;
+    margin:0;
+    padding:0;
+}
+
+.change-color {
+    color: #dddd22;
+}
+
+.header-card {
+    height:60px;
+    overflow: hidden;
+}
+
+.items-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+}
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    color: darkgrey;
+    flex-grow: 2;
+}
+
+.tags-card {
+    height: 300px;
+    overflow: hidden;
+}
+
+.custom-size {
+    font-size: 25px;
+}
+
+.boxes {
+    height: 320px;
+}
+.boxes-search {
+    height: 235px;
+}
+
