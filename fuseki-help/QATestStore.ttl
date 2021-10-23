@@ -1,0 +1,36 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix sor: <http://purl.org/net/soron/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix app: <http://localhost:3000/> .
+@prefix sioc: <https://www.w3.org/Submission/sioc-spec/#>.
+
+
+app:Intelligent_Information_Systems_Subject rdf:type dbr:Question.
+app:Answer_Name rdf:type dbr:Answer.
+app:Marko_Panushkovski rdf:type dbr:User.
+app:Intelligent_Information_Systems_Subject dbp:writer app:Marko_Panushkovski.
+app:Intelligent_Information_Systems_Subject dbp:title "Intelligent Information Systems Subject".
+app:Intelligent_Information_Systems_Subject dbp:description "Description for The question about intelligent information systems".
+app:Intelligent_Information_Systems_Subject dbp:tag "Semantic web".
+app:Intelligent_Information_Systems_Subject dbp:tag "Linked data".
+app:Intelligent_Information_Systems_Subject sor:likedBy app:Marko_Panushkovski.
+app:Intelligent_Information_Systems_Subject sor:likedBy app:Stojko_Stojkovski.
+app:Intelligent_Information_Systems_Subject sor:dislikedBy app:Marko_Panushkovski.
+app:Intelligent_Information_Systems_Subject sioc:term_has_reply app:Answer_Name.
+app:Answer_Name sioc:term_reply_of app:Intelligent_Information_Systems_Subject.
+app:Answer_Name dbp:writer app:Marko_Panushkovski.
+app:Answer_Name sor:likedBy app:Marko_Panushkovski.
+app:Answer_Name sor:dislikedBy app:Marko_Panushkovski.
+app:Answer_Name dbp:title "Intelligent Information Systems Answer".
+app:Answer_Name dbp:explanation "Description for The answer about intelligent information systems".
+app:Answer_Name dbp:date "2021-04-26"^^xsd:date.
+app:Marko_Panushkovski dbp:username "Marko.Panushkovski".
+app:Marko_Panushkovski dbp:email "markopanuskovski@gmail.com".
+app:Marko_Panushkovski dbp:code "1234".
+app:Marko_Panushkovski dbp:role "ROLE_USER".
+app:Stojko_Stojkovski dbp:username "Stojko.Stojkovski".
+app:Stojko_Stojkovski dbp:email "stojkostojkovski@gmail.com".
+app:Stojko_Stojkovski dbp:code "5678".
+app:Stojko_Stojkovski dbp:role "ROLE_USER".
