@@ -54,8 +54,10 @@ public class ModelToJsonLDMapper {
 
         String prefix = properties.get(questionModel.getPrefix()).stream().map(i -> i.toString()).findFirst().orElseThrow(IllegalArgumentException::new);
         String uri = properties.get(questionModel.getUri()).stream().map(i -> i.toString()).findFirst().orElseThrow(IllegalArgumentException::new);
-        String date = properties.get(questionModel.getDate()).stream().map(i -> i.toString()).findFirst().orElseThrow(IllegalArgumentException::new);
-
+        String date = null;
+        if (properties.containsKey(questionModel.getDate())) {
+            date = properties.get(questionModel.getDate()).stream().map(i -> i.toString()).findFirst().orElseThrow(IllegalArgumentException::new);
+        }
         List<RDFNode> likedByList = properties.containsKey(questionModel.getLikedBy()) ? properties.get(questionModel.getLikedBy()) : new ArrayList<>();
 
         List<User> likedBy = likedByList.stream().map(u -> {
@@ -97,17 +99,31 @@ public class ModelToJsonLDMapper {
                 .map(Optional::get)
                 .collect(Collectors.toList());
 
-        Question question = new Question(resource.toString(),
-                title,
-                description,
-                user,
-                likedBy,
-                dislikedBy,
-                tagList,
-                answers,
-                prefix,
-                uri,
-                date);
+        Question question;
+        if (date != null) {
+            question = new Question(resource.toString(),
+                    title,
+                    description,
+                    user,
+                    likedBy,
+                    dislikedBy,
+                    tagList,
+                    answers,
+                    prefix,
+                    uri,
+                    date);
+        } else {
+            question = new Question(resource.toString(),
+                    title,
+                    description,
+                    user,
+                    likedBy,
+                    dislikedBy,
+                    tagList,
+                    answers,
+                    prefix,
+                    uri);
+        }
 
         String questionJsonLd = objectMapper.writeValueAsString(question);
 

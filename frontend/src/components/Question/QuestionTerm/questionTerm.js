@@ -88,10 +88,15 @@ class QuestionTerm extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> {this.props.term.date != null &&
                     <div>
-                        <h6 className={"text-secondary "}><i> Posted on {this.props.term.date.split("T")[0]} </i></h6>
-                    </div>
+                        <h6 className={"text-secondary "}><i> Posted on {this.props.term.date?.split("T")[0]} </i></h6>
+                    </div>}
+
+                    {this.props.term.date == null &&
+                    <div>
+                        <h6 className={"text-secondary "}><i> Date unknown </i></h6>
+                    </div>}
                     {/*<div> { this.props.currentUser?.username &&*/}
                     {/*<Link onClick={() => {this.props.getQuestion(this.props.term["@id"]); window.scrollTo(0, 0);}}*/}
                     {/*      to={`/questions/details/${this.props.term.uri}`}*/}

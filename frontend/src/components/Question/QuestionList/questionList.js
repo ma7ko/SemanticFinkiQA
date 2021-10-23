@@ -37,6 +37,7 @@ class QuestionList extends Component {
 
     listQuestions() {
         QuestionService.getQuestions().then((response) =>{
+            console.log(response);
             this.setState({
                 questions: response.data
             });}

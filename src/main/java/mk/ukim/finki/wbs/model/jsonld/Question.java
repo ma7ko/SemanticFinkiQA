@@ -54,6 +54,30 @@ public class Question {
                     List<String> tags,
                     List<Answer> answer,
                     String prefix,
+                    String uri) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.writer = writer;
+        this.likedBy = likedBy;
+        this.dislikedBy = dislikedBy;
+        this.tags = tags;
+        this.answer = answer;
+        this.prefix = prefix;
+        this.uri = uri;
+    }
+
+    public Question() {}
+
+    public Question(String id,
+                    String title,
+                    String description,
+                    User writer,
+                    List<User> likedBy,
+                    List<User> dislikedBy,
+                    List<String> tags,
+                    List<Answer> answer,
+                    String prefix,
                     String uri,
                     String date) {
         this.id = id;

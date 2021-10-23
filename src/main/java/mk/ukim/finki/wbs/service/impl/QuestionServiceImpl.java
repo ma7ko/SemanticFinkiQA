@@ -40,15 +40,27 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Resource> getQuestions() {
-        Comparator<Resource> dateComparator = (c1, c2) -> {
-            String date1 = c1.getProperty(this.questionModel.getDate()).getObject().toString();
-            String date2 = c2.getProperty(this.questionModel.getDate()).getObject().toString();
-            LocalDateTime date1o = LocalDateTime.parse(date1);
-            LocalDateTime date2o = LocalDateTime.parse(date2);
-            if (date1o.isBefore(date2o)) return 1;
-            else return -1;
+        Comparator<Resource> hasNull = (c1, c2) -> {
+            if (c1.hasProperty(this.questionModel.getDate())) {
+                return -1;
+            } 
+            else return 1;
         };
-        return this.questionRepository.listQuestions().stream().sorted(dateComparator).collect(Collectors.toList());
+        Comparator<Resource> dateComparator = (c1, c2) -> {
+	    if (c1.hasProperty(this.questionModel.getDate()) && c2.hasProperty(this.questionModel.getDate())) { 
+            	String date1 = c1.getProperty(this.questionModel.getDate()).getObject().toString();
+            	String date2 = c2.getProperty(this.questionModel.getDate()).getObject().toString();
+	    	if(date1 != null && date2 != null) {
+            		LocalDateTime date1o = LocalDateTime.parse(date1);
+            		LocalDateTime date2o = LocalDateTime.parse(date2);
+            		if (date1o.isBefore(date2o)) return 1;
+            		else if (date2o.isBefore(date1o)) return -1;
+                    else return 0;
+	    	}
+	    }
+	    return 2;
+        };
+        return this.questionRepository.listQuestions().stream().sorted(hasNull).sorted(dateComparator).collect(Collectors.toList());
     }
 
     @Override
@@ -68,10 +80,6 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         if (userURI == null || userURI.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-
-        if (tags == null) {
             throw new IllegalArgumentException();
         }
 
@@ -101,9 +109,11 @@ public class QuestionServiceImpl implements QuestionService {
                 .addProperty(this.questionModel.getUri(), currentUri)
                 .addProperty(this.questionModel.getDate(), LocalDateTime.now().toString());
 
-        tags.forEach(tag -> {
-            question.addProperty(this.questionModel.getTag(), tag);
-        });
+        if (tags != null) {
+            tags.forEach(tag -> {
+                question.addProperty(this.questionModel.getTag(), tag);
+            });
+        }
 
         return this.questionRepository.saveQuestion(question);
     }

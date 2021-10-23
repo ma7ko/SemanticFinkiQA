@@ -41,6 +41,7 @@ const questionService = {
                 },
                 "tags": tags,
                 "prefix": "http://localhost:3000/questions/details/",
+                "date": null,
                 "answer": []
         }, { headers: authHeader() });
     },

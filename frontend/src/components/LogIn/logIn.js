@@ -200,14 +200,16 @@ export default class Login extends Component {
                             }}
                         />
                     </Form>
-                    <button id={"fb-button"}
-                            className="btn btn-outline-primary"
-                            onClick={this.getFacebookAccessToken}
-                    > <FontAwesomeIcon id="fb-icon" icon={faFacebook} className={"text-primary mr-2"}/>
-                        Log in With Facebook
-                    </button>
                 </div>
             </div>
         );
     }
+
+    // FB Login not work in semantic FINKI QA only SQL FINKI QA
+                      /*<button id={"fb-button"}
+                            className="btn btn-outline-primary"
+                            onClick={this.getFacebookAccessToken}
+                    > <FontAwesomeIcon id="fb-icon" icon={faFacebook} className={"text-primary mr-2"}/>
+                        Log in With Facebook
+                    </button>*/
 }
